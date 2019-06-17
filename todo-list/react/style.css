@@ -1,0 +1,18 @@
+.item_list {
+	list-style: none;
+	background-color: aliceblue;
+}
+
+.comptrue {
+	opacity: .5;
+	text-decoration: line-through;
+}
+
+.comp-button,
+.rem-button {
+	border-radius: 20px;
+}
+
+.comptrue .comp-button {
+	background-color: grey;
+}
