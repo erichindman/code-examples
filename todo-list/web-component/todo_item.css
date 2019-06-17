@@ -1,0 +1,27 @@
+li {
+	padding: 5px;
+}
+
+button {
+	transition: background-color .5s ease;
+	border-radius: 100%;
+	box-shadow: 0 0 5px #000;
+	margin: 0 0 0 15px;
+}
+
+button:hover {
+	background-color: #84b9e67c;
+}
+
+.complete-button {
+	color: green;
+}
+
+.complete-button:focus, .delete-button:focus {
+	outline: none;
+	background-color: #84b9e67c;
+}
+
+.delete-button {
+	color: red;
+}
