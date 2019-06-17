@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport">
+		<title>todo-app</title>
+		<link href="style.css" rel="stylesheet" />
+		<script src="script.js" type="module"></script>
+	</head>
+	<body>
+		<section id="ToDoApp">
+			<form v-on:submit.prevent="addItem">
+				<input ref="itemInput" v-model="newItemValue" autofocus />
+				<button type="submit">Add Item</button>
+			</form>
+			<ul>
+				<li v-for="(item, index) in items" v-bind:class="{ completed: item.completed }">
+					<span ref="text" v-on:focusout="updateItem(index, event)" v-on:click="toggleItem(index)">{{ item.text }}</span>
+					<button v-on:click="toggleItem(index)">√</button>
+					<button v-on:click="removeItem(index)">x</button>
+				</li>
+			</ul>
+		</section>
+	</body>
+</html>
