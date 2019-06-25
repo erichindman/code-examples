@@ -65,7 +65,8 @@ h2 {
 
 }
 
-.todo_list, .comp_list {
+.todo_list {
+	background-color: #e084937c;
 	border-radius: 20px;
 	box-shadow: 0 0 10px 1px;
 	min-height: 40px;
@@ -85,15 +86,8 @@ list-item {
 	border-radius: 20px;
 	padding-left: 10px;
 }
-list-item:before {
-	content: ' • ';
-}
-.todo_list {
-	background-color: #e084937c;
-}
-.comp_list {
-	background-color: #90f3b67c;
-}
-.item-dragging {
-	filter: grayscale(40%) blur(1px);
+
+.complete {
+	text-decoration: line-through;
+	opacity: 0.4;
 }

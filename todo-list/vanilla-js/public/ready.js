@@ -2,31 +2,26 @@
 import createLi from './create_li.js';
 
 function onReady () {
-
 	const entryForm = document.querySelector('.entry_form')
 	const typeItem = entryForm.querySelector('.type_item');
-
 	const todoList = document.querySelector('.todo_list');
-	const compList = document.querySelector('.comp_list');
-
+	
+	// Creates a default state for previewing app behavior
+	const defaults = ['Watch TV', 'Buy Watch', 'Watch Watchmen']
+	defaults.forEach((item) => {
+		createLi(todoList, item);
+	})
 	entryForm.onsubmit = event => {
-
-		const typeValue = typeItem.value;
 		event.preventDefault();
+		const typeValue = typeItem.value;
 
 		if (typeValue === '') {
-
 			typeItem.setAttribute('placeholder', 'please enter a value.');
-
 		} else {
-
-			createLi(todoList, typeValue, compList);
+			createLi(todoList, typeValue);
 			typeItem.value = '';
-
 		}
-
 		typeItem.focus();
-
 	}
 }
 

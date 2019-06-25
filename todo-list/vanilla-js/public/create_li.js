@@ -1,14 +1,14 @@
-import dragDefine from './drag_define.js';
 
-export default function createLi(dest, itemContent, destOnComplete) {
+export default function createLi(destination, itemContent) {
 	const li = document.createElement('li');
+	const label = document.createElement('label');
 	const compButton = document.createElement('button');
 	const delButton = document.createElement('button');
 
 	compButton.onclick = () => {
-		destOnComplete.append(li);
+		li.classList.toggle('complete');
+		compButton.blur();
 	}
-
 	delButton.onclick = () => {
 		li.remove();
 	}
@@ -19,10 +19,8 @@ export default function createLi(dest, itemContent, destOnComplete) {
 	delButton.textContent = '×';
 	delButton.className = 'del_button';
 
-	li.textContent = itemContent;
-	li.append(compButton, delButton);
-
-	dragDefine(li);
-
-	dest.append(li);
+	label.textContent = itemContent;
+	label.append(compButton)
+	li.append(label, delButton);
+	destination.append(li);
 }

@@ -14,8 +14,10 @@
 			</form>
 			<ul>
 				<li v-for="(item, index) in items" v-bind:class="{ completed: item.completed }">
-					<span ref="text" v-on:focusout="updateItem(index, event)" v-on:click="toggleItem(index)">{{ item.text }}</span>
-					<button v-on:click="toggleItem(index)">√</button>
+					<label>
+						{{ item.text }}
+						<button v-on:click="toggleItem(index)">√</button>
+					</label>
 					<button v-on:click="removeItem(index)">x</button>
 				</li>
 			</ul>

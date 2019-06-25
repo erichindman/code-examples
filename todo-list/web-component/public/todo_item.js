@@ -1,4 +1,4 @@
-import dragDefine from "./drag_define.js";
+
 
 class ListItem extends HTMLElement {
 	// find browser compatibility issues
@@ -40,34 +40,31 @@ class ListItem extends HTMLElement {
 		.delete-button {
 			color: red;
 		}`;
-
-		// finds the to-do and completed lists.
-		const compList = document.querySelector(".comp_list");
-
-		// creates and provides function to a "complete" button.
+	
 		const compButton = document.createElement("button");
+		const delButton = document.createElement("button");
+		const li = document.createElement('li');
+		const label = document.createElement('label');
+
 		compButton.classList.add("complete-button");
 		compButton.textContent = "√";
-		compButton.addEventListener("click", () => {
-			compList.append(this);
-			compButton.hidden = true;
-		});
-
-		// creates and provides function to a "delete" button.
-		const delButton = document.createElement("button");
+		compButton.onclick = () => {
+			this.classList.toggle('complete');
+			this.blur();
+		};
+		
 		delButton.classList.add("delete-button");
 		delButton.textContent = "×";
-		delButton.addEventListener("click", () => {
+		delButton.onclick = () => {
 			this.remove();
-		});
+		}
 
 		// appends user content and functional buttons to the <li>.
-		shadow.append(compButton, delButton);
+		label.append(compButton);
+		li.append(label, delButton);
+		shadow.append(li);
 	}
 
-	connectedCallback() {
-		dragDefine(this);
-	}
 }
 
 // defines the custom element "<list-item>".

@@ -17,8 +17,10 @@ function onReady() {
 			// creates new <list-item> **AS DEFINED ABOVE**.
 
 			const li = document.createElement("list-item");
-			li.textContent = typeValue;
-			li.setAttribute("draggable", "true");
+			const label = li.shadowRoot.querySelector('label');
+			const compButton = label.querySelector('.complete-button')
+			label.insertBefore(document.createTextNode(typeValue), compButton);
+			
 
 			// appends <list-item> to the to-do list <ul>.
 			todoList.append(li);
