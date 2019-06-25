@@ -5,13 +5,13 @@ class ListItem extends HTMLElement {
 	constructor() {
 		super();
 
-		// attaches open shadow DOM to "list-item" custom element.
-		const shadow = this.attachShadow({ mode: "open" });
+		// attaches open shadow DOM to 'list-item' custom element.
+		const shadow = this.attachShadow({ mode: 'open' });
 
-		shadow.appendChild(document.createElement("slot"));
+		shadow.appendChild(document.createElement('slot'));
 
 		// adds inline styling to the otherwise inaccessible shadow DOM.
-		shadow.appendChild(document.createElement("style")).textContent = `
+		shadow.appendChild(document.createElement('style')).textContent = `
 		li {
 			padding: 5px;
 			background: none;
@@ -41,20 +41,20 @@ class ListItem extends HTMLElement {
 			color: red;
 		}`;
 	
-		const compButton = document.createElement("button");
-		const delButton = document.createElement("button");
+		const compButton = document.createElement('button');
+		const delButton = document.createElement('button');
 		const li = document.createElement('li');
 		const label = document.createElement('label');
 
-		compButton.classList.add("complete-button");
-		compButton.textContent = "√";
+		compButton.classList.add('complete-button');
+		compButton.textContent = '√';
 		compButton.onclick = () => {
 			this.classList.toggle('complete');
 			this.blur();
 		};
 		
-		delButton.classList.add("delete-button");
-		delButton.textContent = "×";
+		delButton.classList.add('delete-button');
+		delButton.textContent = '×';
 		delButton.onclick = () => {
 			this.remove();
 		}
@@ -67,5 +67,5 @@ class ListItem extends HTMLElement {
 
 }
 
-// defines the custom element "<list-item>".
-customElements.define("list-item", ListItem);
+// defines the custom element '<list-item>'.
+customElements.define('list-item', ListItem);
