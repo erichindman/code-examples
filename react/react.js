@@ -33,7 +33,7 @@ function ToDoApp () {
 		setItems(newState);
 	}
 
-	return <>
+	return (<>
 
 		<form onSubmit={handleSubmit}>
 			<input ref={input} autoFocus/>
@@ -52,6 +52,6 @@ function ToDoApp () {
 			})}
 		</ul>
 
-	</>;
+	</>);
 }
 ReactDOM.render(<ToDoApp />, document.getElementById('root'));
