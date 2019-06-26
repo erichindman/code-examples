@@ -33,25 +33,22 @@ function ToDoApp () {
 		setItems(newState);
 	}
 
-	return (
-		<section>
-			<form onSubmit={handleSubmit}>
-				<input ref={input} autoFocus/>
-				<button type="submit">Add Item</button>
-			</form>
-
-			<ul>
-				{items.map((item, index) => {
-					return <li className={'comp' + item.completed} key={index}>
-						<label>
-							<button className={index} onClick={toggleItem}>√</button>
-							{item.text}
-						</label>
-						<button className={index} onClick={removeItem}>x</button>
-					</li>
-				})}
-			</ul>
-		</section>
-	);
+	return <>
+		<form onSubmit={handleSubmit}>
+			<input ref={input} autoFocus/>
+			<button type="submit">Add Item</button>
+		</form>
+		<ul>
+			{items.map((item, index) => {
+				return <li className={'comp' + item.completed} key={index}>
+					<label>
+						<button className={index} onClick={toggleItem}>√</button>
+						{item.text}
+					</label>
+					<button className={index} onClick={removeItem}>x</button>
+				</li>
+			})}
+		</ul>	
+	</>;	
 }
 ReactDOM.render(<ToDoApp />, document.getElementById('root'));
