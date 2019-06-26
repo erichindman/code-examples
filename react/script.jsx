@@ -1,3 +1,5 @@
+console.log('updated');
+
 function ToDoApp () {
 	const input = React.createRef();
 
