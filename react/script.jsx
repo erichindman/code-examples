@@ -38,18 +38,19 @@ function ToDoApp () {
 	};
 
 	return <>
-		<form onSubmit={handleSubmit}>
+		<h1>To-Do List:</h1>
+		<form className="entry-form" onSubmit={handleSubmit}>
 			<input ref={input} autoFocus/>
 			<button type="submit">Add Item</button>
 		</form>
-		<ul>
+		<ul className="todo-list">
 			{items.map((item, index) => {
-				return <li className={'comp' + item.completed} key={index}>
+				return <li className={'comp-' + item.completed} key={index}>
 					<label>
-						<button className={index} onClick={toggleItem}>√</button>
+						<button className={index + ' complete-button'} onClick={toggleItem}>√</button>
 						{item.text}
 					</label>
-					<button className={index} onClick={removeItem}>x</button>
+					<button className={index + ' delete-button'} onClick={removeItem}>x</button>
 				</li>
 			})}
 		</ul>

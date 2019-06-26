@@ -9,7 +9,7 @@ h1 {
 	margin: 20px 20px 0 20px;
 }
 
-form {
+.entry-form {
 	display: flex;
 	flex-direction: column;
 	max-width: 80%;
