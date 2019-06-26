@@ -1,6 +1,5 @@
-
 function ToDoApp () {
-	const input = React.createRef('add Item');
+	const input = React.createRef();
 
 	const state = [
 		{text: 'One', completed: false},
@@ -10,28 +9,33 @@ function ToDoApp () {
 
 	const [items, setItems] = React.useState(state);
 
-	handleSubmit = event => {
+	const handleSubmit = event => {
 		event.preventDefault();
+
 		setItems([...items, {
 			text: input.current.value,
 			completed: false,
 		}]);
 
 		input.current.value = '';
-	}
+	};
 
-	toggleItem = event => {
+	const toggleItem = event => {
 		const itemIndex = Number(event.target.className);
-		items[itemIndex].completed = !items[itemIndex].completed;
-		setItems([...items]);
-	}
 
-	removeItem = event => {
+		items[itemIndex].completed = !items[itemIndex].completed;
+
+		setItems([...items]);
+	};
+
+	const removeItem = event => {
 		const itemIndex = Number(event.target.className);
 		const newState = [...items];
+
 		newState.splice(itemIndex, 1);
+
 		setItems(newState);
-	}
+	};
 
 	return <>
 		<form onSubmit={handleSubmit}>
@@ -48,7 +52,8 @@ function ToDoApp () {
 					<button className={index} onClick={removeItem}>x</button>
 				</li>
 			})}
-		</ul>	
-	</>;	
+		</ul>
+	</>
 }
+
 ReactDOM.render(<ToDoApp />, document.getElementById('root'));
