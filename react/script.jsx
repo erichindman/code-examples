@@ -1,4 +1,4 @@
-console.log('updated');
+
 
 function ToDoApp () {
 	const input = React.createRef();
@@ -31,12 +31,12 @@ function ToDoApp () {
 	};
 
 	const removeItem = event => {
-		const itemIndex = Number(event.target.className);
-		const newState = [...items];
+		//const itemIndex = Number(event.target.className);
+		//const newState = [...items];
+		console.log(event.target.className);
+		//newState.splice(itemIndex, 1);
 
-		newState.splice(itemIndex, 1);
-
-		setItems(newState);
+		//setItems(newState);
 	};
 
 	return <>
