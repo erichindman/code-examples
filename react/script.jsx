@@ -23,20 +23,20 @@ function ToDoApp () {
 	};
 
 	const toggleItem = event => {
-		const itemIndex = Number(event.target.className);
+		//const itemIndex = Number(event.target.className);
+		console.log(event.target.className);
+		//items[itemIndex].completed = !items[itemIndex].completed;
 
-		items[itemIndex].completed = !items[itemIndex].completed;
-
-		setItems([...items]);
+		//setItems([...items]);
 	};
 
 	const removeItem = event => {
-		//const itemIndex = Number(event.target.className);
-		//const newState = [...items];
-		console.log(event.target.className);
-		//newState.splice(itemIndex, 1);
+		const itemIndex = Number(event.target.className);
+		const newState = [...items];
+		
+		newState.splice(itemIndex, 1);
 
-		//setItems(newState);
+		setItems(newState);
 	};
 
 	return <>
