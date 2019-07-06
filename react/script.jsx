@@ -1,62 +1,54 @@
-console.log('working')
-
 function ToDoApp () {
 	const input = React.createRef();
 
-	const state = [
-		{text: 'One', completed: false},
-		{text: 'Two', completed: false},
-		{text: 'Three', completed: false},
-	];
-
-	const [items, setItems] = React.useState(state);
+	const [items, setItems] = React.useState([
+		{text: 'Buy Watch', completed: false},
+		{text: 'Watch TV', completed: false},
+		{text: 'Watch Watchmen', completed: false},
+	]);
 
 	const handleSubmit = event => {
 		event.preventDefault();
-
-		setItems([...items, {
-			text: input.current.value,
-			completed: false,
-		}]);
-
-		input.current.value = '';
-	};
-
-	const toggleItem = event => {
-		//const itemIndex = Number(event.target.className);
-		console.log(event.target.className);
-		//items[itemIndex].completed = !items[itemIndex].completed;
-
-		//setItems([...items]);
-	};
+		if (input.current.value === '') { /* Do Nothing */} 
+		else {
+			setItems([
+				...items,
+				{text: input.current.value, completed: false},
+			]);
+	
+			input.current.value = '';
+		}
+	}
 
 	const removeItem = event => {
-		const itemIndex = Number(event.target.className);
-		const newState = [...items];
-		
+		const itemIndex = event.target.id;
+		const newState = [...items]
 		newState.splice(itemIndex, 1);
-
 		setItems(newState);
-	};
+	}
+
+	const toggleItem = event => {
+		const itemIndex = event.target.parentNode.id;
+		items[itemIndex].completed = !items[itemIndex].completed;
+		setItems([...items]);
+	}
 
 	return <>
-		<h1>To-Do List:</h1>
-		<form className="entry-form" onSubmit={handleSubmit}>
-			<input ref={input} autoFocus/>
-			<button type="submit">Add Item</button>
+		<h1>ToDos:</h1>
+		<form className="entry_form" onSubmit={handleSubmit}>
+			<input ref={input} />
+			<button type='submit'>Add Item</button>
 		</form>
-		<ul className="todo-list">
+		<ul className="todo_list">
 			{items.map((item, index) => {
-				return <li className={'comp-' + item.completed} key={index}>
-					<label>
-						<button className={index + ' complete-button'} onClick={toggleItem}>√</button>
-						{item.text}
-					</label>
-					<button className={index + ' delete-button'} onClick={removeItem}>x</button>
-				</li>
+				return <li id={index} key={index} className={item.completed ? 'completed' : ''}>
+					<button className='complete-button' onClick={toggleItem}>√</button>
+					{item.text}
+					<button className='delete-button' onClick={removeItem}>x</button>
+				</li>;
 			})}
 		</ul>
-	</>
+	</>;
 }
 
 ReactDOM.render(<ToDoApp />, document.getElementById('root'));

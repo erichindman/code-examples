@@ -6,7 +6,7 @@ export default function createLi(destination, itemContent) {
 	const delButton = document.createElement('button');
 
 	compButton.onclick = () => {
-		li.classList.toggle('complete');
+		li.classList.toggle('completed');
 		compButton.blur();
 	}
 	delButton.onclick = () => {
@@ -14,10 +14,10 @@ export default function createLi(destination, itemContent) {
 	}
 
 	compButton.textContent = '√';
-	compButton.className = 'comp_button';
+	compButton.className = 'complete_button';
 
 	delButton.textContent = '×';
-	delButton.className = 'del_button';
+	delButton.className = 'delete_button';
 
 	label.textContent = itemContent;
 	label.append(compButton)

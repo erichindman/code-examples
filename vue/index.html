@@ -8,17 +8,17 @@
 	</head>
 	<body>
 		<section id="ToDoApp">
-			<form v-on:submit.prevent="addItem">
+			<form class="entry_form" v-on:submit.prevent="addItem">
 				<input ref="itemInput" v-model="newItemValue" autofocus />
 				<button type="submit">Add Item</button>
 			</form>
-			<ul>
+			<ul class=todo_list>
 				<li v-for="(item, index) in items" v-bind:class="{ completed: item.completed }">
 					<label>
 						{{ item.text }}
-						<button v-on:click="toggleItem(index)">√</button>
+						<button class="complete_button" v-on:click="toggleItem(index)">√</button>
 					</label>
-					<button v-on:click="removeItem(index)">x</button>
+					<button class="delete_button" v-on:click="removeItem(index)">x</button>
 				</li>
 			</ul>
 		</section>

@@ -49,7 +49,7 @@ class ListItem extends HTMLElement {
 		compButton.classList.add('complete-button');
 		compButton.textContent = '√';
 		compButton.onclick = () => {
-			this.classList.toggle('complete');
+			this.classList.toggle('completed');
 			this.blur();
 		};
 		

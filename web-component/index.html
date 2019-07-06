@@ -5,16 +5,13 @@
 	<meta charset="utf-8" />
 	<script src="ready.js" type="module"></script>
 	<script src="todo_item.js" type="module"></script>
-<!--
-	<link rel="preload" href="todo_item.css" as="style" onload="this.media='none';this.rel='stylesheet';console.log(this.sheet);">
--->
 	<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 	<h1>To-Do List</h1>
-	<form class="entry-form">
-		<input autofocus class="type-item" rows="1" placeholder="...buy chicken, etc..." />
-		<button type="submit" class="add-item">Add Item</button>
+	<form class="entry_form">
+		<input autofocus placeholder="...buy chicken, etc..." />
+		<button type="submit">Add Item</button>
 	</form>
 	<ul class="todo_list"></ul>
 </body>
