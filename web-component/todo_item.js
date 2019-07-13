@@ -1,5 +1,3 @@
-
-
 class ListItem extends HTMLElement {
 	// find browser compatibility issues
 	constructor() {
@@ -12,33 +10,45 @@ class ListItem extends HTMLElement {
 
 		// adds inline styling to the otherwise inaccessible shadow DOM.
 		shadow.appendChild(document.createElement('style')).textContent = `
-		li {
-			padding: 5px;
-			background: none;
+		
+		.complete_button {
+			color: lightgreen;
+			margin: 0 10px 0 0;
 		}
-
-		button {
-			transition: background-color .5s ease;
-			border-radius: 100%;
-			box-shadow: 0 0 5px #000;
-			margin: 0 0 0 15px;
+		
+		.delete_button {
+			color: lightcoral;
+			float: right;
 		}
-
-		button:hover {
-			background-color: #84b9e67c;
+		
+		.complete_button, .delete_button {
+			background-color: white;
+			border: 0;
+			border-radius: 50%;
+			font-size: 1em;
 		}
-
-		.complete-button {
-			color: green;
-		}
-
-		.complete-button:focus, .delete-button:focus {
+		.complete_button:hover, .complete_button:focus {
 			outline: none;
-			background-color: #84b9e67c;
+			background-color: rgba(144, 238, 144, 0.4);
+			color: white;
 		}
-
-		.delete-button {
-			color: red;
+		
+		.delete_button:focus, .delete_button:hover {
+			outline: none;
+			background-color: rgba(240, 128, 128, 0.4);
+			color: white;
+		}
+		
+		.completed label {
+			text-decoration: line-through;
+			opacity: .4;
+			filter: blur(1%);
+		}
+		
+		.completed .complete_button {
+			background-color: rgba(144, 238, 144, 0.4);
+			outline: none;
+			color: white;
 		}`;
 	
 		const compButton = document.createElement('button');
@@ -46,21 +56,21 @@ class ListItem extends HTMLElement {
 		const li = document.createElement('li');
 		const label = document.createElement('label');
 
-		compButton.classList.add('complete-button');
-		compButton.textContent = '√';
+		compButton.classList.add('complete_button');
+		compButton.textContent = '✓';
 		compButton.onclick = () => {
-			this.classList.toggle('completed');
+			li.classList.toggle('completed');
 			this.blur();
 		};
 		
-		delButton.classList.add('delete-button');
+		delButton.classList.add('delete_button');
 		delButton.textContent = '×';
 		delButton.onclick = () => {
 			this.remove();
 		}
 
 		// appends user content and functional buttons to the <li>.
-		label.append(compButton);
+		label.append(compButton, delButton);
 		li.append(label, delButton);
 		shadow.append(li);
 	}

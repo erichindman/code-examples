@@ -1,26 +1,27 @@
 <!doctype html>
 <html>
 	<head>
-		<meta name="viewport">
+		<meta name="viewport" width="device-width">
 		<title>todo-app</title>
 		<link href="style.css" rel="stylesheet" />
 		<script src="script.js" type="module"></script>
 	</head>
 	<body>
-		<section id="ToDoApp">
-			<form class="entry_form" v-on:submit.prevent="addItem">
-				<input ref="itemInput" v-model="newItemValue" autofocus />
-				<button type="submit">Add Item</button>
-			</form>
+		<section id="todo-list">
+			<h1>To-dos:</h1>
 			<ul class=todo_list>
-				<li v-for="(item, index) in items" v-bind:class="{ completed: item.completed }">
+				<li v-for="(item, index) in items" :class="{ completed: item.completed }">
 					<label>
+						<button class="complete_button" v-on:click="toggleItem(index)">✓</button>
 						{{ item.text }}
-						<button class="complete_button" v-on:click="toggleItem(index)">√</button>
 					</label>
-					<button class="delete_button" v-on:click="removeItem(index)">x</button>
+					<button class="delete_button" v-on:click="removeItem(index)">×</button>
 				</li>
 			</ul>
+			<form class="entry_form" v-on:submit.prevent="addItem">
+					<input :placeholder="placeholder" ref="itemInput" v-model="newItemValue" autofocus />
+					<button type="submit">➣</button>
+			</form>
 		</section>
 	</body>
 </html>

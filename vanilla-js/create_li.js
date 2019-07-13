@@ -13,14 +13,14 @@ export default function createLi(destination, itemContent) {
 		li.remove();
 	}
 
-	compButton.textContent = '√';
+	compButton.textContent = '✓';
 	compButton.className = 'complete_button';
 
 	delButton.textContent = '×';
 	delButton.className = 'delete_button';
 
-	label.textContent = itemContent;
-	label.append(compButton)
+	
+	label.append(compButton, itemContent);	
 	li.append(label, delButton);
 	destination.append(li);
 }

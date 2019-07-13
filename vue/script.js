@@ -2,8 +2,9 @@ import Vue from 'https://unpkg.com/vue@2.6.10/dist/vue.esm.browser.min.js';
 
 function onReady () {
 	new Vue({
-		el: '#ToDoApp',
+		el: '#todo-list',
 		data: {
+			placeholder: 'Watch Watchmen Watching a Watch',
 			newItemValue: "",
 			items: [
 				{ text: 'Watch TV', completed: false },
@@ -13,11 +14,15 @@ function onReady () {
 		},
 		methods: {
 			addItem () {
-				this.items.push({
-					text: this.newItemValue,
-					completed: false,
-				});
-				this.newItemValue = '';
+				if (this.newItemValue === '') {
+					this.placeholder = 'Please enter a value:';
+				} else {
+					this.items.push({
+						text: this.newItemValue,
+						completed: false,
+					});
+					this.newItemValue = '';
+				}
 				this.$refs.itemInput.focus();
 			},
 			removeItem (index) {

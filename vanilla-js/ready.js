@@ -3,11 +3,11 @@ import createLi from './create_li.js';
 
 function onReady () {
 	const entryForm = document.querySelector('.entry_form')
-	const typeItem = entryForm.querySelector('.type_item');
+	const typeItem = entryForm.querySelector('input');
 	const todoList = document.querySelector('.todo_list');
 	
 	// Creates a default state for previewing app behavior
-	const defaults = ['Watch TV', 'Buy Watch', 'Watch Watchmen']
+	const defaults = ['Watch TV', 'Buy Watch', 'Watch Watchmen'];
 	defaults.forEach((item) => {
 		createLi(todoList, item);
 	})
@@ -16,9 +16,10 @@ function onReady () {
 		const typeValue = typeItem.value;
 
 		if (typeValue === '') {
-			typeItem.setAttribute('placeholder', 'please enter a value.');
+			typeItem.setAttribute('placeholder', 'please enter a value:');
 		} else {
 			createLi(todoList, typeValue);
+			typeItem.setAttribute('placeholder', typeValue);
 			typeItem.value = '';
 		}
 		typeItem.focus();
