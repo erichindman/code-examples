@@ -6,6 +6,7 @@ function onReady () {
 		data: {
 			placeholder: 'Watch Watchmen Watching a Watch',
 			newItemValue: "",
+			inputFocus: true,
 			items: [
 				{ text: 'Watch TV', completed: false },
 				{ text: 'Buy Watch', completed: false },
@@ -21,6 +22,7 @@ function onReady () {
 						text: this.newItemValue,
 						completed: false,
 					});
+					this.placeholder = this.newItemValue;
 					this.newItemValue = '';
 				}
 				this.$refs.itemInput.focus();

@@ -19,7 +19,7 @@
 				</li>
 			</ul>
 			<form class="entry_form" v-on:submit.prevent="addItem">
-					<input :placeholder="placeholder" ref="itemInput" v-model="newItemValue" autofocus />
+					<input :autofocus="inputFocus" :placeholder="placeholder" ref="itemInput" v-model="newItemValue" />
 					<button type="submit">➣</button>
 			</form>
 		</section>

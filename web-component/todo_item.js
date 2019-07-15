@@ -10,17 +10,21 @@ class ListItem extends HTMLElement {
 
 		// adds inline styling to the otherwise inaccessible shadow DOM.
 		shadow.appendChild(document.createElement('style')).textContent = `
-		
+		label {
+			display: inline-block;
+			width: 85%;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
 		.complete_button {
 			color: lightgreen;
 			margin: 0 10px 0 0;
 		}
-		
 		.delete_button {
 			color: lightcoral;
 			float: right;
 		}
-		
 		.complete_button, .delete_button {
 			background-color: white;
 			border: 0;
@@ -32,19 +36,15 @@ class ListItem extends HTMLElement {
 			background-color: rgba(144, 238, 144, 0.4);
 			color: white;
 		}
-		
 		.delete_button:focus, .delete_button:hover {
 			outline: none;
 			background-color: rgba(240, 128, 128, 0.4);
 			color: white;
 		}
-		
 		.completed label {
 			text-decoration: line-through;
-			opacity: .4;
-			filter: blur(1%);
+			opacity: 0.3;
 		}
-		
 		.completed .complete_button {
 			background-color: rgba(144, 238, 144, 0.4);
 			outline: none;
