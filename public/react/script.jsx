@@ -38,7 +38,7 @@ function ToDoApp () {
 	}
 
 	return <>
-		<h1>ToDos:</h1>
+		<h1>React ToDos:</h1>
 		<ul className="todo_list">
 			{items.map((item, index) => {
 				return <li id={index} key={index} className={item.completed ? 'completed' : ''}>
