@@ -12,7 +12,7 @@ class ListItem extends HTMLElement {
 		shadow.appendChild(document.createElement('style')).textContent = `
 		label {
 			display: inline-block;
-			width: 85%;
+			width: 70%;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
